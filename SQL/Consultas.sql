@@ -1,0 +1,9 @@
+USE CursoEFCore
+
+SELECT TOP 100 * FROM Produtos
+
+SELECT TOP 100 * FROM Clientes
+
+SELECT TOP 100 * FROM Pedidos
+
+SELECT TOP 100 * FROM PedidoItens

@@ -1,0 +1,32 @@
+===================================
+Estrutura
+===================================
+Domain > Models => Entidades
+Data > Context => Configurações
+
+
+===================================
+Estrutura Migration
+===================================
+Partial:Migration > Class > Up => Criação da nova versão do banco
+Partial:Migration > Class > Down => Rollback do estado anterior do banco
+
+Partial Class.Designer => Cópia do modelo de dados no momento da criação
+
+Partial:ModelSnapshot => Estado atual do banco, atualizado a cada execução das Migrations.
+
+
+===================================
+Comandos Migration
+===================================
+PM> Add-Migration PrimeiraMigracao
+
+PM> Script-Migration 0 PrimeiraMigracao
+PM> Script-Migration 0 PrimeiraMigracao -Output ./src/CursoEFCore/SQL/script_PrimeiraMigracao.sql
+PM> Script-Migration 0 PrimeiraMigracao -Output ./src/CursoEFCore/SQL/script_PrimeiraMigracao.sql -idempotent (-i) => "IF NOT EXISTS"
+PM> Script-Migration 20210506191900_PrimeiraMigracao
+
+PM> Update-Database
+PM> Update-Database -v
+PM> Update-Database PrimeiraMigracao
+PM> Update-Database 20210506191900_PrimeiraMigracao -Connection your_connection_string
